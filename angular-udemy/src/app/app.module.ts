@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
 
-viders: [],
+],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
