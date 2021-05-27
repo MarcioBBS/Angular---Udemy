@@ -9,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 //    <app-server></app-server>
 //    <app-server></app-server>
 //   `,
-templateUrl: './servers.component.html',
+  templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
 })
 
 export class ServersComponent implements OnInit {
    public allowNewServer: boolean = false;
-   public serverCreationStatus: string = 'No server was created'
+   public serverCreationStatus: string = 'No server was created';
+   public serverName: string = '';
 
   constructor() {
      setTimeout(()=> {
@@ -28,6 +29,11 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
      this.serverCreationStatus = 'Server was created!';
+  }
+
+  onUpdateServerNamne(event: Event): void {
+     // Explicit Casting (<HTMLInputElement>event.target)  - This is to inform TypeScrip that the type of the HTML element of this event will be an HTML input element.
+     this.serverName = (<HTMLInputElement>event.target).value;
   }
 
 }
