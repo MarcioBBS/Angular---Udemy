@@ -1,3 +1,4 @@
+import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,14 +15,19 @@ templateUrl: './servers.component.html',
 
 export class ServersComponent implements OnInit {
    public allowNewServer: boolean = false;
+   public serverCreationStatus: string = 'No server was created'
 
   constructor() {
      setTimeout(()=> {
         this.allowNewServer = true;
-     }, 3000);
+     }, 2000);
    }
 
   ngOnInit(): void {
+  }
+
+  onCreateServer() {
+     this.serverCreationStatus = 'Server was created!';
   }
 
 }
