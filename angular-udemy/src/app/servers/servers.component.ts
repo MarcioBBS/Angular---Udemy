@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 
@@ -18,6 +19,7 @@ export class ServersComponent implements OnInit {
    public serverCreationStatus: string = 'No server was created';
    public serverName: string = 'ProjectLive';
    public serverCreated = false;
+   public servers = ['ServerTest1', 'ServerTest2'];
  
   constructor() {
      setTimeout(()=> {
@@ -30,6 +32,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
      this.serverCreated = true;
+     this.servers = [...this.servers, this.serverName];
      this.serverCreationStatus = `Server was created! Ther server name is ${this.serverName}`;
   }
 
